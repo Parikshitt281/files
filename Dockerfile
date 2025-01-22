@@ -1,5 +1,6 @@
-FROM amazonlinux
-RUN yum update && yum install httpd -y
-RUN echo "this is httpd" > /var/www/html/index.html
+FROM ubuntu
+RUN apt update && apt install nginx -y 
+RUN echo "this is nginx" > /usr/share/nginx/html/index.html
 EXPOSE 80
-CMD ["httpd","-D","FOREGROUND"]
+CMD ["nginx", "-g", "daemon off;"]
+
